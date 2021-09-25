@@ -1,0 +1,5 @@
+name: JsonData
+antigen: skymin\json
+api: 4.0.0
+version: SKY
+author: skymin
