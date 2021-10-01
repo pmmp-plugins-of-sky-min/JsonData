@@ -8,10 +8,10 @@ use skymin\json\Data
 ```
 ## get data or create data
 ```php
-Data::call(string $path, string $name);
+Data::call(string $path);
 ```
 return type is array
 ## save data
 ```php
-Data::save(string $path, string $name, array $data);
+Data::save(string $path, array $data);
 ```
