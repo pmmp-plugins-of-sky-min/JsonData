@@ -27,13 +27,13 @@ use const JSON_UNESCAPED_UNICODE;
 
 class Data{
 	
-	public static function call(string $path, string $name) :array{
-		$name = $name . '.json';
-		return json_decode(file_exists($path . $name) ? file_get_contents($path . $name) : "{}", true);
+	public static function call(string $path) :array{
+		$path .= '.json';
+		return json_decode(file_exists($path) ? file_get_contents($path) : "{}", true);
 	}
 	
-	public static function save(string $path, string $name, array $data) :void{
-		file_put_contents($path . $name . '.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+	public static function save(string $path, array $data) :void{
+		file_put_contents($path . '.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 	}
 	
 }
