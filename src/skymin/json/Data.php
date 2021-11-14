@@ -1,31 +1,15 @@
 <?php
-/*
-*       _                       _        
-*      | |                     (_)       
-*  ___ | | __ _   _  _ __ ___   _  _ __  
-* / __|| |/ /| | | || '_ ` _ \ | || '_ \ 
-* \__ \|   < | |_| || | | | | || || | | |
-* |___/|_|\_\ \__, ||_| |_| |_||_||_| |_|
-*              __/ |                     
-*             |___/                      
-* 
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the MIT License. see <https://opensource.org/licenses/MIT>.
-*/
-
 declare(strict_types = 1);
 
 namespace skymin\json;
 
+use pocketmine\Server;
+
 use function file_exists;
 use function file_get_contents;
-use function file_put_contents;
-use function json_encode;
 use function json_decode;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_UNICODE;
 
-class Data{
+final class Data{
 	
 	public static function call(string $path) :array{
 		$path .= '.json';
@@ -33,7 +17,7 @@ class Data{
 	}
 	
 	public static function save(string $path, array $data) :void{
-		file_put_contents($path . '.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+		Server::getInstance()->getAsyncPool()->submitTask(new SaveAsyncTask($path, $data));
 	}
 	
 }
