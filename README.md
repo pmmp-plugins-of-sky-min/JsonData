@@ -1,6 +1,9 @@
 # JsonData
 json asynchronous save
 
+# No Update
+Please use [DataConfig](https://github.com/sky-min/JsonData)
+
 this is virion
 # How to use
 ```php
