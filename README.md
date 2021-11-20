@@ -2,9 +2,8 @@
 json asynchronous save
 
 # No Update
-Please use [DataConfig](https://github.com/sky-min/JsonData)
+Please use [DataConfig](https://github.com/sky-min/DataConfig)
 
-this is virion
 # How to use
 ```php
 use skymin\json\Data
